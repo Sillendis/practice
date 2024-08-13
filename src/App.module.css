@@ -1,0 +1,53 @@
+.wrapper {
+  display: grid;
+  place-items: center; /* Центрирует по горизонтали и вертикали */
+  background-color: black;
+  padding: 3vh;
+}
+
+.header_content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Делим на 3 колонки */
+  gap: 20vh;
+}
+
+.ava {
+  width: 100%;
+  height: 430px;
+}
+
+.ava img {
+  width: 100%; /* Установите ширину изображения равной ширине контейнера */
+  height: 100%; /* Установите высоту изображения равной высоте контейнера */
+  object-fit: cover; /* Изображение будет масштабироваться и обрезаться по необходимости */
+}
+
+h1 {
+  display: grid;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  margin: 0; /* Удаляет отступы вокруг заголовка */
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 50vh;
+  padding: 3vh;
+  background-color: wheat;
+  margin: 15vh;
+  font-size: 15px;
+  transition: background-color 0.5s, transform 0.5s;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+  transform: scale(1.1);
+}
+
+button:active {
+  background-color: white;
+  transform: scale(0.85);
+}

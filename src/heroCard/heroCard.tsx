@@ -1,6 +1,11 @@
 import React from "react";
 
-function HeroCard({ img, title }) {
+interface HeroCardProps {
+    img: string;
+    title: string;
+}
+
+function HeroCard({ img, title }: HeroCardProps) {
     return (
         <div>
             <img src={img} alt={title} />

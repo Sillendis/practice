@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import styles from "./App.module.css";
+import styles from './App.module.css'
 import HeroCard from "./heroCard/heroCard";
 import GG from "./assets/GG.png";
 import Himeko from "./assets/Himeko.png";

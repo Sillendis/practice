@@ -18,6 +18,10 @@ h1 {
   margin: 0; /* Удаляет отступы вокруг заголовка */
 }
 
+p {
+  color: white;
+}
+
 button {
   border: none;
   border-radius: 10px;

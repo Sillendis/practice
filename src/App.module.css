@@ -18,6 +18,10 @@ h1 {
   margin: 0; /* Удаляет отступы вокруг заголовка */
 }
 
+a {
+  color: white;
+}
+
 p {
   color: white;
 }

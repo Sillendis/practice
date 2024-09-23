@@ -14,6 +14,8 @@ import Aventurine from "./assets/Aventurine.png";
 import Dr_Ratio from "./assets/Dr_Ratio.png";
 import Black_Swan from "./assets/Black_Swan.png";
 import Acheron from "./assets/Acheron.png";
+import QuizApp from "./QUIZ BLYAT/QuizApp";
+
 
 function App() {
   const [showCharacters, setShowCharacters] = useState(false);
@@ -21,6 +23,8 @@ function App() {
   const handleToggleCharacters = () => {
     setShowCharacters((prevState) => !prevState);
   };
+
+
 
   return (
     <div className={styles.wrapper}>
@@ -46,7 +50,10 @@ function App() {
       <button onClick={handleToggleCharacters}>
         {showCharacters ? "HIDE OTHER CHARACTERS" : "SHOW OTHER CHARACTERS"}
       </button>
-    </div>
+
+      <QuizApp />
+
+    </div >
   );
 }
 

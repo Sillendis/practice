@@ -1,30 +1,10 @@
 import React, { useState } from "react";
 
-const quizQuestions = [
+const quizQuestion = [
     {
-        quiestion: 'Кто заебал Машу в последнее время больше?',
-        options: ['Мама', 'Пахан', 'Колбасун', 'Маша', 'Все они блять'],
-        answer: 'Все они блять'
-    },
-    {
-        quiestion: 'Пойдёт ли папа сам в магазин?',
-        options: ['Да', 'Нет', 'Только с Машей, то вынесет мозги', 'С мамой'],
-        answer: 'Только с Машей, то вынесет мозги'
-    },
-    {
-        quiestion: 'Как быстро папа будет в хорошем настроении после Машиного отказа?',
-        options: ['Быстро', 'Хер там', 'Мама заебала его больше', 'что-то случилось?'],
-        answer: 'что-то случилось?'
-    },
-    {
-        quiestion: 'Мама, сегодня опять на ужин угли?',
-        options: ['Да, Витечька', 'что-то случилось?', '/обидеться нахуй/', '/обидеться нахуй и вызвать у всех чувство вины/'],
-        answer: '/обидеться нахуй и вызвать у всех чувство вины/'
-    },
-    {
-        quiestion: 'Как пройдёт ужин?',
-        options: ['Сойдёт', 'Прозвучит Иисус раз 5', 'Угли вкусные всё равно', 'Похуй'],
-        answer: 'Прозвучит Иисус раз 5'
+        question: '',
+        options: ['', '', '', ''],
+        answer: '',
     },
 ]
 
@@ -34,17 +14,18 @@ function QuizApp() {
     const [score, setScore] = useState(0)
     const [showResult, setShowResult] = useState(false)
 
+
     const handleAnswerClick = (option: string) => {
         setUserAnswer(option)
     }
 
     const handleSubmit = () => {
-        if (userAnswer === quizQuestions[currentQuestion].answer) {
+        if (userAnswer === quizQuestion[currentQuestion].answer) {
             setScore(score + 1)
         }
 
         const nextQuestion = currentQuestion + 1
-        if (nextQuestion < quizQuestions.length) {
+        if (nextQuestion < quizQuestion.length) {
             setCurrentQuestion(nextQuestion)
             setUserAnswer('')
         } else {
@@ -60,35 +41,33 @@ function QuizApp() {
     }
 
     return (
-        <div style={{ textAlign: 'center', marginTop: '50px' }}>
-            <h1>Вопросики</h1>
+        <div style={{ textAlign: 'center', marginTop: '50px', color: 'white' }}>
+            <h1>Вопросы, блять</h1>
             {showResult ? (
-                <div style={{ color: 'wheat' }}>
-                    <h2>Ваш результат: {score} из {quizQuestions.length}</h2>
-                    <button onClick={handleRestart}>Начать заново!</button>
+                <div>
+                    <h2>Ваш результат: {score} из {quizQuestion.length}</h2>
+                    <button onClick={handleRestart}>Начать сначала</button>
                 </div>
             ) : (
-                <div style={{ color: 'wheat' }}>
-                    <h3>{quizQuestions[currentQuestion].quiestion}</h3>
+                <div>
+                    <h3>{quizQuestion[currentQuestion].question}</h3>
                     <div>
-                        {quizQuestions[currentQuestion].options.map((option: string) => (
+                        {quizQuestion[currentQuestion].options.map((option) => (
                             <button
                                 key={option}
                                 onClick={() => handleAnswerClick(option)}
                                 style={{
-                                    margin: '15px',
-                                    padding: '15px',
-                                    width: '15vh',
-                                    backgroundColor: userAnswer === option ? 'pink' : ''
+                                    margin: '25px',
+                                    padding: '25px',
+                                    backgroundColor: userAnswer === option ? 'pink' : '',
+                                    width: '25vh'
                                 }}
                             >
                                 {option}
                             </button>
                         ))}
                     </div>
-                    <button onClick={handleSubmit} disabled={!userAnswer}>
-                        Ответить
-                    </button>
+                    <button onClick={handleSubmit} disabled={!userAnswer}>Ответить</button>
                 </div>
             )}
         </div>

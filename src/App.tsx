@@ -24,6 +24,14 @@ function App() {
     setShowCharacters((prevState) => !prevState);
   };
 
+  const [string, setString] = useState('')
+
+  const [countries, setCountries] = useState([
+    'Ukrane',
+    'Georgia',
+    'Republic of Moldova',
+    'Greece',
+  ])
 
 
   return (
@@ -52,6 +60,22 @@ function App() {
       </button>
 
       <QuizApp />
+
+      {countries.map((el: string, index: number) =>
+        (<p key={index}>{el}</p>))}
+
+
+      <input
+        type="text"
+        placeholder="Enter your country"
+        value={string}
+        onChange={(e) => setString(e.target.value)}
+      />
+
+      <button onClick={() => {
+        setCountries((countries) => [...countries, string]);
+        setString('');
+      }}>Send new country</button>
 
     </div >
   );
